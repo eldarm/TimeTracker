@@ -1,28 +1,25 @@
 package com.eldar.timetracker
 
 import android.content.Context
-import android.os.Environment
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import android.util.Log
-import android.content.Context.MODE_PRIVATE
-
-import java.io.OutputStream
 
 
 class ActivitiesList {
     private var vs = mutableListOf(restLabel)
 
     companion object {
-        private val restLabel = "REST (stop tracking)"
+        public val restLabel = "REST"
         @JvmStatic
         private var list: ActivitiesList = ActivitiesList()
 
         var writePath: File? = null
         var itemsFile: File? = null
 
-        public fun SetContext(ctx: Context) {
+        /** Must be run before using the Activities list. */
+        public fun ReadActivities(ctx: Context) {
 
             val dataPath = ctx.filesDir // Environment.getDataDirectory()
             Log.i("ActivitiesList", "Data path $dataPath exists? " + dataPath?.exists())
@@ -70,6 +67,7 @@ class ActivitiesList {
 
         public fun Del(a: String) {
             list.vs.remove(a)
+            save()
         }
 
         private fun save() {

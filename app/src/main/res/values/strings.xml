@@ -3,4 +3,5 @@
     <string name="menu_day">Day</string>
     <string name="menu_week">Week</string>
     <string name="menu_edit">Edit</string>
+    <string name="stop_tracking">Stop Tracking</string>
 </resources>
