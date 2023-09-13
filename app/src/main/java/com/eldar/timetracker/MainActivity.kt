@@ -75,6 +75,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun askYesNo(t: String): Boolean {
+        // IMPORTANT: This does not really work on architectural level.
+        // It does not wait for the response. So, you don't get the response really, unless
+        // you put a hndler into on* functions. However, these function don't have access
+        // to stuff you need, e.g. refresh the main screen list (not to mention that
+        // it may be changed by the time, you get a user response.
+        // I'm removing it and replacing with a separate activity which is much more reliable and
+        // robust way to reach that result (confirmation of deletion).
         var confirmDelete = 0
         AlertDialog.Builder(this)
             .setTitle("Delete activity $t")
