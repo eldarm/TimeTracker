@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         ActivitiesList.ReadActivities(this.baseContext)
-        //val path = context.getFilesDir()
+        InitLog(this.baseContext)
+
         toolbar = findViewById<Toolbar>(R.id.materialToolbar)
         setSupportActionBar(toolbar)
         toolbar!!.inflateMenu(R.menu.menu_toolbar)
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             newButton.hint = getString(R.string.stop_tracking)
         }
         newButton.setOnClickListener {
+            StartActivity(t)
             Toast.makeText(
                 applicationContext,
                 "click on " + t,

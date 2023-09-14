@@ -5,53 +5,34 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import android.util.Log
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
+// TODO: refactor. Separate file operations.
+private var itemsFile: File? = null
+private val itemsFileName ="items.tsv"
 
 class ActivitiesList {
     private var vs = mutableListOf(restLabel)
 
     companion object {
         val restLabel = "REST"
+
         @JvmStatic
         private var list: ActivitiesList = ActivitiesList()
 
-        var writePath: File? = null
-        var itemsFile: File? = null
-
         /** Must be run before using the Activities list. */
         fun ReadActivities(ctx: Context) {
+            itemsFile = OpenFile(ctx, itemsFileName)
 
-            val dataPath = ctx.filesDir // Environment.getDataDirectory()
-            Log.i("ActivitiesList", "Data path $dataPath exists? " + dataPath?.exists())
-            Log.i("ActivitiesList", "Data path $dataPath readable? " + dataPath?.canRead())
-            Log.i("ActivitiesList", "Data path $dataPath writeable? " + dataPath?.canWrite())
-
-            writePath = File(dataPath!!.path, "ElsTimeTracker")
-            Log.i("ActivitiesList", "Is there folder $writePath")
-            if (!writePath!!.exists()) {
-                Log.i("ActivitiesList", "Creating folder $writePath")
-                if (!writePath!!.mkdir()) {
-                    Log.i("ActivitiesList", "Failed to create folder $writePath")
-                }
-            }
-
-            itemsFile = File(writePath, "items.tsv")
-            if (itemsFile!!.exists()) {
-                Log.i("ActivitiesList", "File $writePath.path exists.")
-                // Load file.
-                val inputAsString =
-                    FileInputStream(itemsFile).bufferedReader().use { it.readText() }
-                list.vs.clear() // Delete junk, only items from the file.
-                list.vs.add(restLabel)
-                for (s in inputAsString.split("\n")) {
-                    if (s != "" && s != restLabel) {
-                        list.vs.add(s)
-                    }
-                }
-            } else {
-                Log.i("ActivitiesList", "No file $writePath.path")
-                if (!itemsFile!!.createNewFile()) {
-                    Log.i("ActivitiesList", "Cannot create file.")
+            // Load file.
+            val inputAsString =
+                FileInputStream(itemsFile).bufferedReader().use { it.readText() }
+            list.vs.clear() // Delete junk, only items from the file.
+            list.vs.add(restLabel)
+            for (s in inputAsString.split("\n")) {
+                if (s != "" && s != restLabel) {
+                    list.vs.add(s)
                 }
             }
         }
