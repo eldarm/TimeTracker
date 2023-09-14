@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
 
         ActivitiesList.ReadActivities(this.baseContext)
         //val path = context.getFilesDir()
-        toolbar = findViewById<Toolbar>(R.id.materialToolbar);
-        setSupportActionBar(toolbar);
-        toolbar!!.inflateMenu(R.menu.menu_toolbar);
+        toolbar = findViewById<Toolbar>(R.id.materialToolbar)
+        setSupportActionBar(toolbar)
+        toolbar!!.inflateMenu(R.menu.menu_toolbar)
 
         findViewById<FloatingActionButton>(R.id.buttonAdd).setOnClickListener {
             Toast.makeText(this@MainActivity, "You clicked Add.", Toast.LENGTH_SHORT).show()
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                     applicationContext,
                     "long click on " + t,
                     Toast.LENGTH_LONG
-                ).show();
+                ).show()
 
                 // findViewById<EditText>(R.id.textNameToDel).setText(t)
                 val intent =
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                     applicationContext,
                     "Confirming deleting $t",
                     Toast.LENGTH_LONG
-                ).show();
+                ).show()
                 false
             }
         }
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        var v = findViewById<LinearLayout>(R.id.layoutActivities)
+        val v = findViewById<LinearLayout>(R.id.layoutActivities)
         v.removeAllViews()
         for (t in ActivitiesList.iter()) {
             v.addView(makeActivityButton(t), v.childCount)

@@ -19,13 +19,13 @@
             android:id="@+id/textActivityToDel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Are you sure you want to delete:" />
+            android:text="@string/are_you_sure_to_delete" />
 
         <TextView
             android:id="@+id/textNameToDel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="*** Please, report a bug ***" />
+            android:text="@string/please_report_a_bug" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,14 +37,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Delete" />
+                android:text="@string/delDelete" />
 
             <Button
                 android:id="@+id/buttonDelCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancel" />
+                android:text="@string/delCancel" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@ class ActivitiesList {
     private var vs = mutableListOf(restLabel)
 
     companion object {
-        public val restLabel = "REST"
+        val restLabel = "REST"
         @JvmStatic
         private var list: ActivitiesList = ActivitiesList()
 
@@ -19,7 +19,7 @@ class ActivitiesList {
         var itemsFile: File? = null
 
         /** Must be run before using the Activities list. */
-        public fun ReadActivities(ctx: Context) {
+        fun ReadActivities(ctx: Context) {
 
             val dataPath = ctx.filesDir // Environment.getDataDirectory()
             Log.i("ActivitiesList", "Data path $dataPath exists? " + dataPath?.exists())
@@ -56,16 +56,16 @@ class ActivitiesList {
             }
         }
 
-        public fun iter(): Iterator<String> {
+        fun iter(): Iterator<String> {
             return list.vs.listIterator()
         }
 
-        public fun Add(a: String) {
+        fun Add(a: String) {
             list.vs.add(a)
             save()
         }
 
-        public fun Del(a: String) {
+        fun Del(a: String) {
             list.vs.remove(a)
             save()
         }
