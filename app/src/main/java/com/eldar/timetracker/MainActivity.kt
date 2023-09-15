@@ -1,6 +1,7 @@
 package com.eldar.timetracker
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,6 +39,9 @@ class MainActivity : AppCompatActivity() {
     private fun makeActivityButton(t: String): Button {
         val newButton = Button(this)
         newButton.text = t
+        //newButton.setBackgroundColor(Color.CYAN)
+        newButton.setBackgroundColor(PastelColors[Random.nextInt(4)])
+        // newButton.setBackgroundColor(PastelColors[Random.nextInt(4)])
         if (t == ActivitiesList.restLabel) {
             newButton.hint = getString(R.string.stop_tracking)
         }
@@ -92,17 +97,21 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_day -> {
-                Toast.makeText(applicationContext, "click on Daye", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "click on Day", Toast.LENGTH_LONG).show()
+                val intent =
+                    Intent(this, ActivityStats::class.java)
+                intent.putExtra("Period", "Day")
+                startActivity(intent)
                 true
-            }
-
-            R.id.menu_edit -> {
-                Toast.makeText(applicationContext, "click on Edit", Toast.LENGTH_LONG).show()
-                return true
             }
 
             R.id.menu_week -> {
                 Toast.makeText(applicationContext, "click on Week", Toast.LENGTH_LONG).show()
+                return true
+            }
+
+            R.id.menu_edit -> {
+                Toast.makeText(applicationContext, "click on Edit", Toast.LENGTH_LONG).show()
                 return true
             }
 

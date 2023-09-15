@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TimeTracker"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityStats"
+            android:exported="false" />
+        <activity
             android:name=".ActivityDel"
             android:exported="false" />
         <activity

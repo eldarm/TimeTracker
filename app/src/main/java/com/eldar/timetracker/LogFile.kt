@@ -9,13 +9,14 @@ import java.util.Calendar
 
 data class LogRecord(val ts: String, val t: Long, val a: String);
 
-private var logFile : File? = null
+private var dataPath: File? = null
+private var logFile: File? = null
 private val logTag = "TimeTracker"
 private val logTimeFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 private val entries = mutableListOf<LogRecord>()
 
-fun logFileName() : String {
-    return "log"+SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().time) + ".log"
+fun logFileName(): String {
+    return "log" + SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().time) + ".log"
 }
 
 fun OpenFile(ctx: Context, name: String): File {
@@ -54,7 +55,7 @@ fun InitLog(ctx: Context) {
     val inputAsString =
         FileInputStream(logFile).bufferedReader().use { it.readText() }
     for (s in inputAsString.split("\n")) {
-        if (s=="") continue
+        if (s == "") continue
         val f = s.split("\t")
         if (f.size < 3) {
             Log.e(logTag, "Poorly formatted log line $s")
@@ -65,6 +66,45 @@ fun InitLog(ctx: Context) {
         }
     }
 }
+
+fun Stats(days: Int): Map<String, Map<String, Long>> {
+    var m: MutableMap<String, MutableMap<String, Long>> = mutableMapOf()
+    var a = ""
+    var t: Long = 0
+    var d = ""
+    entries.forEach {
+        val k = it.ts.subSequence(0, 10).toString()
+        Log.i(logTag, "'" + k + "'")
+        if (k == d) {
+            // Skip overnight entries.
+            if (!m.containsKey(k)) m[k] = mutableMapOf<String, Long>()
+            if (!m[k]!!.containsKey(it.a)) m[k]!![it.a] = 0
+            m[k]!![it.a] = it.t - t + (m[k]!![it.a] ?: 0)
+        }
+        a = it.a
+        t = it.t
+        d = k
+    }
+    return m
+}
+
+fun Ms2String(ms: Long) : String {
+    val s = ms / 1000;
+    val m = s % 60
+    val h = m / 3600
+    return "%02dH:%02dM".format(h, m)
+}
+fun StatsStr() : String {
+    var res = ""
+    for (stat in Stats(1)) {
+        for (it in stat.value) {
+                if (it.key == ActivitiesList.restLabel) continue
+                res += "%10s %-15s %-8s\n".format(stat.key, it.key, Ms2String(it.value))
+        }
+    }
+    return res
+}
+
 class LogFile {
 
 }
