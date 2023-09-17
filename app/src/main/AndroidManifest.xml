@@ -13,6 +13,12 @@
         android:theme="@style/Theme.TimeTracker"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityLogFiles"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityListFiles"
+            android:exported="false" />
+        <activity
             android:name=".ActivityStats"
             android:exported="false" />
         <activity

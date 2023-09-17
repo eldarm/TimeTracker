@@ -1,7 +1,10 @@
 package com.eldar.timetracker
 
+import android.R.attr.bottom
+import android.R.attr.left
+import android.R.attr.right
+import android.R.attr.top
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -36,40 +39,49 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun makeActivityButton(t: String): Button {
+    private fun makeActivityButton(t: ActivityItem): Button {
+        val a = t.a
         val newButton = Button(this)
-        newButton.text = t
+        newButton.text = a
+//        val params = LayoutParams(
+//            LayoutParams.WRAP_CONTENT,
+//            LayoutParams.WRAP_CONTENT
+//        )
+//        params.setMargins(left, top, right, bottom)
+//        Your_Layout.setLayoutParams(params)
+//        newButton.layout.
+        // newButton.setMar.marginTop = 4
         //newButton.setBackgroundColor(Color.CYAN)
-        newButton.setBackgroundColor(PastelColors[Random.nextInt(4)])
+        newButton.setBackgroundColor(t.c) // PastelColors[Random.nextInt(4)])
         // newButton.setBackgroundColor(PastelColors[Random.nextInt(4)])
-        if (t == ActivitiesList.restLabel) {
+        if (a == ActivitiesList.restLabel) {
             newButton.hint = getString(R.string.stop_tracking)
         }
         newButton.setOnClickListener {
-            StartActivity(t)
+            StartActivity(a)
             Toast.makeText(
                 applicationContext,
-                "click on " + t,
+                "click on " + a,
                 Toast.LENGTH_LONG
             ).show()
         }
-        if (t != ActivitiesList.restLabel) {
+        if (a != ActivitiesList.restLabel) {
             newButton.setOnLongClickListener {
                 Toast.makeText(
                     applicationContext,
-                    "long click on " + t,
+                    "long click on " + a,
                     Toast.LENGTH_LONG
                 ).show()
 
                 // findViewById<EditText>(R.id.textNameToDel).setText(t)
                 val intent =
                     Intent(this, ActivityDel::class.java) // Intent(this, ActivityDel::class.java)
-                intent.putExtra("ActivityToDel", t)
+                intent.putExtra("ActivityToDel", a)
                 startActivity(intent)
 
                 Toast.makeText(
                     applicationContext,
-                    "Confirming deleting $t",
+                    "Confirming deleting $a",
                     Toast.LENGTH_LONG
                 ).show()
                 false
@@ -113,6 +125,15 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_edit -> {
                 Toast.makeText(applicationContext, "click on Edit", Toast.LENGTH_LONG).show()
                 return true
+            }
+
+            R.id.menu_list -> {
+                Toast.makeText(applicationContext, "click on List", Toast.LENGTH_LONG).show()
+                val intent =
+                    Intent(this, ActivityLogFiles::class.java)
+                intent.putExtra("Period", "Day")
+                startActivity(intent)
+                true
             }
 
             else -> super.onOptionsItemSelected(item)

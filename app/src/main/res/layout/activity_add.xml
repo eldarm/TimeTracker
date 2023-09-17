@@ -35,6 +35,41 @@
                 android:ems="10"
                 android:inputType="text" />
 
+            <RadioGroup
+                android:id="@+id/radioGroupColor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButtonSky"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#C0E0FF"
+                    android:checked="true"
+                    android:text="SKY" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonGrass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#C0FFC0"
+                    android:text="GRASS" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonYolk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFC0"
+                    android:text="YOLK" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonKiss"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFC0C0"
+                    android:text="KISS" />
+            </RadioGroup>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

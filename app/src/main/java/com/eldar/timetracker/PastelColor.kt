@@ -3,6 +3,7 @@ package com.eldar.timetracker
 import android.graphics.Color
 
 public val PastelColors = arrayOf(
+    PastelColor.SYSTEM_REST,
     PastelColor.KISS,
     PastelColor.GRASS,
     PastelColor.SKY,
@@ -11,9 +12,10 @@ public val PastelColors = arrayOf(
 
 class PastelColor {
     companion object {
-        val KISS = Color.rgb(255, 192, 192)
-        val GRASS = Color.rgb(192, 255, 192)
-        val SKY = Color.rgb(128, 192, 255)
-        val YOLK = Color.rgb(255, 255, 192)
+        val SYSTEM_REST = Color.rgb(0x80,0xFF,0x80)
+        val KISS = Color.rgb(0xFF, 0xC0, 0xC0)
+        val GRASS = Color.rgb(0xC0, 0xFF, 0xC0)
+        val SKY = Color.rgb(0xC0, 0xE0, 0xFF)
+        val YOLK = Color.rgb(0xFF, 0xFF, 0xC0)
     }
 }

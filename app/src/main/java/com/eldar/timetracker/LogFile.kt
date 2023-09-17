@@ -3,6 +3,7 @@ package com.eldar.timetracker
 import android.content.Context
 import android.util.Log
 import java.io.File
+import java.io.FileFilter
 import java.io.FileInputStream
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -13,6 +14,7 @@ private var dataPath: File? = null
 private var logFile: File? = null
 private val logTag = "TimeTracker"
 private val logTimeFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+private val logFilePattern = "log\\d{8}.log"
 private val entries = mutableListOf<LogRecord>()
 
 fun logFileName(): String {
@@ -25,7 +27,7 @@ fun OpenFile(ctx: Context, name: String): File {
     Log.i(logTag, "Time now is " + logTimeFormat.format(Calendar.getInstance().time))
 
 
-    val dataPath = ctx.filesDir // Environment.getDataDirectory()
+    dataPath = ctx.filesDir // Environment.getDataDirectory()
     Log.i(logTag, "Data path $dataPath exists? " + dataPath?.exists())
     Log.i(logTag, "Data path $dataPath readable? " + dataPath?.canRead())
     Log.i(logTag, "Data path $dataPath writeable? " + dataPath?.canWrite())
@@ -105,6 +107,6 @@ fun StatsStr() : String {
     return res
 }
 
-class LogFile {
-
+fun ListFiles() : List<File>? {
+    return dataPath?.listFiles()?.toList()?.filter { it -> it.toString().endsWith(".log") }
 }
