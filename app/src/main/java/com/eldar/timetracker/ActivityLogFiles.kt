@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TableLayout
@@ -32,14 +33,22 @@ class ActivityLogFiles : AppCompatActivity() {
     }
 }
 
+fun newTextBut(ctx: Context, l: String) : View {
+    var tv = Button(ctx)
+    tv.setText(/* text = */ l)
+    return tv
+}
+
 fun newFileTableRow(ctx: Context, fl: String) : TableRow {
     var newRow = TableRow(ctx)
 
     var newText = TextView(ctx)
     newText.setText(fl)
-    newRow.addView(newText)
+    newRow.addView(newText,0)
 
-    // var newShow = ImageButton(ctx)
-    // newShow.setImageResource(R.drawable.)
+    newRow.addView(newTextBut(ctx, "Show"), 1)
+    newRow.addView(newTextBut(ctx, "Del"), 2)
+    //var newShow = ImageButton(ctx)
+    //newShow.setImageResource(R.drawable.ic_menu_view)
     return newRow
 }

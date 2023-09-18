@@ -38,34 +38,34 @@
 
         <TableLayout
             android:id="@+id/tableFiles"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="parent">
 
-            <!--            <TableRow-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="match_parent">-->
+<!--            <TableRow-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
 
-            <!--                <TextView-->
-            <!--                    android:id="@+id/textView2"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="File XXXX-XX-XX.log" />-->
+                <!--                <TextView-->
+                <!--                    android:id="@+id/textView2"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:text="File XXXX-XX-XX.log" />-->
 
-                            <ImageButton
-                                android:id="@+id/imageButtonViewFile"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:contentDescription="View this file."
-                                android:src="@android:drawable/ic_menu_view" />
+                <ImageButton
+                    android:id="@+id/imageButtonViewFile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="View this file."
+                    android:src="@android:drawable/ic_menu_view" />
 
-                            <ImageButton
-                                android:id="@+id/imageButtonDelFile"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:contentDescription="Delete this file."
-                                android:src="@android:drawable/ic_menu_delete" />
-            <!--            </TableRow>-->
+                <ImageButton
+                    android:id="@+id/imageButtonDelFile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Delete this file."
+                    android:src="@android:drawable/ic_menu_delete" />
+<!--            </TableRow>-->
         </TableLayout>
     </ScrollView>
 
