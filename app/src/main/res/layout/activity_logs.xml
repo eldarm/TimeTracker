@@ -16,6 +16,7 @@
         app:backgroundTint="#8B6BDA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Return to the main screen"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
 
@@ -46,8 +47,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewFListTitle">
 
 
@@ -89,5 +90,15 @@
             </TableRow>
         </TableLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/textViewFileContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tableFiles"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="TextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
