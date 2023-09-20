@@ -17,8 +17,8 @@
         android:layout_height="wrap_content"
         android:title="@string/menu_edit" />
     <item
-        android:id="@+id/menu_list"
+        android:id="@+id/menu_logs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="List" />
+        android:title="Logs" />
 </menu>

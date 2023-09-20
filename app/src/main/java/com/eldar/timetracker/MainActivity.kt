@@ -1,9 +1,5 @@
 package com.eldar.timetracker
 
-import android.R.attr.bottom
-import android.R.attr.left
-import android.R.attr.right
-import android.R.attr.top
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -14,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity() {
@@ -127,10 +122,10 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
 
-            R.id.menu_list -> {
+            R.id.menu_logs -> {
                 Toast.makeText(applicationContext, "click on List", Toast.LENGTH_LONG).show()
                 val intent =
-                    Intent(this, ActivityLogFiles::class.java)
+                    Intent(this, ActivityLogs::class.java)
                 intent.putExtra("Period", "Day")
                 startActivity(intent)
                 true
