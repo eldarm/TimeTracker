@@ -48,21 +48,9 @@ fun newFileTableRow(ctx: Context, fl: String) : TableRow {
     newText.setText(fl)
     newRow.addView(newText,0)
 
-//    newRow.addView(newTextBut(ctx, "\uD83D\uDC41 Show"), 1)
-//    newRow.addView(newTextBut(ctx, "\uD83D\uDDD1 Del"), 2)
-//    newRow.addView(newTextBut(ctx, "✉ EMail"), 3)
-    newRow.addView(newTextBut(ctx, "\uD83D\uDC41"), 1)
-    newRow.addView(newTextBut(ctx, "\uD83D\uDDD1"), 2)
-    newRow.addView(newTextBut(ctx, "✉"), 3)
+    newRow.addView(newTextBut(ctx, "\uD83D\uDC41"), 1) // Show 👁
+    newRow.addView(newTextBut(ctx, "\uD83D\uDDD1"), 2) // Del 🗑
+    newRow.addView(newTextBut(ctx, "✉"), 3) // Email ✉
 
-    //. applicationcontext.getString
-//    val string: String = ctx.getString(R.string.show)// applicationcontext.getstring(R.string.show)
-    //newRow.addView(newTextBut(ctx, ctx.getString(android.R.string.show)), 1)
-//    newRow.addView(newTextBut(ctx, R.string.delete.toString()), 2)
-
-    // var tb = ImageButton(ctx)
-    // tb.setImage
-    //var newShow = ImageButton(ctx)
-    //newShow.setImageResource(R.drawable.ic_menu_view)
     return newRow
 }

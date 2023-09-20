@@ -66,36 +66,25 @@
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Log files found in storage" />
-                <!--                android:text="File XXXX-XX-XX.log" />-->
+                    android:text="Log files" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="View"
                     android:textAlignment="center" />
-                <!--                    android:id="@+id/imageButtonViewFile"-->
-                <!--                android:text="View this file."-->
-                <!--                    android:src="@android:drawable/ic_menu_view" -->
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Del"
                     android:textAlignment="center" />
-                <!--                    android:id="@+id/imageButtonDelFile"-->
-                <!--                    android:contentDescription="Delete this file."-->
-                <!--                    android:src="@android:drawable/ic_menu_delete" -->
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Email"
                     android:textAlignment="center" />
-                <!--                    android:id="@+id/imageButtonViewFile1"-->
-                <!--                    android:contentDescription="View this file."-->
-                <!--                    android:src="@drawable/wastebasket24" -->
-
 
             </TableRow>
         </TableLayout>
