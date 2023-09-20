@@ -8,7 +8,7 @@
     <string name="please_report_a_bug">*** Please, report a bug ***</string>
     <string name="delCancel">Cancel</string>
     <string name="delDelete">Delete</string>
-    <string name="show">👁 \uD83D\uDC41 Show</string>
-    <string name="delete">🗑 \uD83D\uDC41 Del</string>
+    <string name="show">👁 Show</string>
+    <string name="delete">🗑 Del</string>
     <string name="email">✉ EMail</string>
 </resources>

@@ -48,9 +48,12 @@ fun newFileTableRow(ctx: Context, fl: String) : TableRow {
     newText.setText(fl)
     newRow.addView(newText,0)
 
-    newRow.addView(newTextBut(ctx, "\uD83D\uDC41 Show"), 1)
-    newRow.addView(newTextBut(ctx, "\uD83D\uDDD1 Del"), 2)
-    newRow.addView(newTextBut(ctx, "✉ EMail"), 2)
+//    newRow.addView(newTextBut(ctx, "\uD83D\uDC41 Show"), 1)
+//    newRow.addView(newTextBut(ctx, "\uD83D\uDDD1 Del"), 2)
+//    newRow.addView(newTextBut(ctx, "✉ EMail"), 3)
+    newRow.addView(newTextBut(ctx, "\uD83D\uDC41"), 1)
+    newRow.addView(newTextBut(ctx, "\uD83D\uDDD1"), 2)
+    newRow.addView(newTextBut(ctx, "✉"), 3)
 
     //. applicationcontext.getString
 //    val string: String = ctx.getString(R.string.show)// applicationcontext.getstring(R.string.show)
